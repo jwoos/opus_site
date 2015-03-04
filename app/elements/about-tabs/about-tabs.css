@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+paper-tabs {
+	background-color: #03A9F4;
+	color: white;
+}
+paper-tab::shadow #ink {
+		color: #ecf0f1;
+}
+paper-tabs::shadow #selectionBar{
+	background-color:white;
+}
+paper-shadow {
+	background-color: white;
+}
+paper-button{
+	background-color: #2ecc71;
+}

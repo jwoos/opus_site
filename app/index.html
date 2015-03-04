@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <!-- build:css /styles/main.css -->
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- endbuild-->
 
   <!-- build:js /bower_components/webcomponentsjs/webcomponents.min.js -->
@@ -39,15 +39,14 @@
   
           <!-- Drawer Content -->
           <core-menu selected="0" selectedItem="{{item}}">
-            <core-submenu label="home" icon="home" selected="0" selectedItem="{{subItem}}">
-              <core-item label="home" icon="home"></core-item>
-              <core-item label="home" icon="home"></core-item>
+            <core-item label="about" icon="home"></core-item>
+            <core-submenu label="account" icon="account-circle" selectedItem="{{subItem}}">
+              <core-item label="profile" icon="perm-contact-cal"></core-item>
             </core-submenu>
-            <core-item label="account" icon="account-circle"></core-item>
+            <core-item label="jobs" icon="work"></core-item>
             <core-item label="news" icon="announcement"></core-item>
             <core-item label="contact" icon="create"></core-item>
           </core-menu>
-  
         </core-header-panel>
   
         <!-- Main -->
@@ -56,13 +55,20 @@
           <!-- Main Toolbar -->
           <core-toolbar>
             <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-            <span>
-              <h4>{{item.label}} | {{subItem.label}}</h4>
-            </span>
+            <div horizontal layout>
+              <div>
+                <h4>{{item.label}} | {{subItem.label}}</h4>
+              </div>
+              <div flex>
+                <core-icon-button icon="refresh" on-click="{{refreshThis}}"></core-icon-button>
+              </div>
+            </div>
           </core-toolbar>
   
           <!-- Main Content -->
           <logo-description></logo-description>
+          <br>
+          <about-tabs></about-tabs>
             
         </core-header-panel>
       </core-drawer-panel>

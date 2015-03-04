@@ -5,8 +5,10 @@
   // and give it some initial binding values
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   var app = document.querySelector('#app');
-  //app.appName = 'OPUS';
-  
+  app.appName = 'OPUS';
+  app.refreshThis = function(){
+    location.reload();
+  };
   
 
   // Listen for template bound event to know when bindings

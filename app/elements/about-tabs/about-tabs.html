@@ -1,0 +1,71 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="about-tabs" attributes="">
+  <template>
+    <link rel="stylesheet" href="about-tabs.css">
+    <section layout vertical is="auto-binding">
+     		<paper-tabs selected="{{ selected }}" selectedindex="0" horizontal center layout noink>
+       			<paper-tab active>
+       			  <h4> student </h4>
+       			</paper-tab>
+        		<paper-tab>
+        		  <h4> businesses </h4>
+        		</paper-tab>
+      		</paper-tabs>
+      		<core-animated-pages selected="{{ selected }}" selectedindex="0" notap transitions="cross-fade-all">
+        		<section active>
+           			<paper-shadow>
+           				<div vertical layout>
+	           				<div>
+		           				<h4 style="text-align:center">I don't have time or money... </h4>
+		           			</div>
+		           			<div style="margin-left:20px;">
+		           				<p>As a student this is something we say all too often. We can't devote our time to working a job as our extracurriculars interfere. But if we were to drop our extracurriculars, our college applications won't look as good. </p>
+	           					<p>We don't have any money, or even any idea about what we might want to do in the future.</p>
+	           					<p>Our lives aren't easy as some people may think: we're expected to balance a social life, academics, extracurriculars and professional experience. As students ourselves, we understand thoroughly the problem we all face. That's why we came up with OPUS.</p>
+	           				</div>
+	           				<center>
+	           					<a href="about/student.html" style="color:white;">
+	           					  <paper-button raised>Learn more</paper-button>
+	           					</a>
+	           				</center>
+	           			</div>
+	           			<br>
+           			</paper-shadow>
+        		</section>
+		        <section>
+		        	<paper-shadow>
+		        		<div vertical layout>
+			        		<div>
+		           				<h4 style="text-align:center">We need this done by tomorrow...</h4>
+		           			</div>
+		           			<div style="margin-left:20px;">
+		           				<p>You might be thinking that and panicking as you realize the worker to whom the task would be delegated to is out sick. </p>
+		           				<p>When workers go on vacation or are out sick it only affects the business's productivity negatively. Also during periods of times during which the workload is heavy, not having enough workers is a huge limiting factor.</p>
+		           				<p>The next time this happens instead of tearing your hair out, try OPUS. You'll  be helping out high school students while maintaining your productivty: beneficial for everyone involved.</p>
+	           				</div>
+	           				<center>
+	           					<a href="about/business.html" style="color:white;">
+	           					  <paper-button raised>Learn more</paper-button>
+	           					</a>
+	           				</center>
+			        	</div>
+			        	<br>
+			        </paper-shadow>
+		        </section>
+    		</core-animated-pages>
+    	</section>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        // define element prototype here
+      });
+    })();
+  </script>
+</polymer-element>
