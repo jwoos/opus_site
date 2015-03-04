@@ -33,7 +33,7 @@
         <core-header-panel drawer>
   
           <!-- Drawer Toolbar -->
-          <core-toolbar>
+          <core-toolbar id="drawer-toolbar">
             <h1>OPUS</h1>
           </core-toolbar>
   
@@ -50,18 +50,15 @@
         </core-header-panel>
   
         <!-- Main -->
-        <core-header-panel main>
+        <core-scroll-header-panel main headermargin="150" condenses keepcondensedheader headerheight="150">
   
           <!-- Main Toolbar -->
-          <core-toolbar>
+          <core-toolbar class="tall" id="scroll-toolbar">
             <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-            <div horizontal layout>
-              <div>
-                <h4>{{item.label}} | {{subItem.label}}</h4>
-              </div>
-              <div flex>
-                <core-icon-button icon="refresh" on-click="{{refreshThis}}"></core-icon-button>
-              </div>
+            <div flex></div>
+            <h4>{{item.label}} | {{subItem.label}}</h4>
+            <div class="bottom">
+              <core-icon-button icon="refresh" on-click="{{refreshThis}}"></core-icon-button>
             </div>
           </core-toolbar>
   
@@ -70,7 +67,7 @@
           <br>
           <about-tabs></about-tabs>
             
-        </core-header-panel>
+        </core-scroll-header-panel>
       </core-drawer-panel>
     </div>
   </template>

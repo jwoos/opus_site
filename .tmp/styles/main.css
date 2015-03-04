@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   background: #fafafa;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -15,8 +20,25 @@ body {
   background-color: #EEEEEE;
 }
 
-core-toolbar {
-  color: #FAFAFA;
-  background-image: url(../images/back.jpg);
+core-scroll-header-panel {
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
 }
 
+core-scroll-header-panel::shadow #headerBg {
+	background-image: url(../images/back.jpg);
+}
+
+core-scroll-header-panel::shadow #condensedHeaderBg {
+	background-color: #03A9F4;
+}
+
+#scroll-toolbar {
+	background-color: transparent;
+	color: white;
+}
+
+#drawer-toolbar {
+  color: white;
+  background-color: #03A9F4;
+}
