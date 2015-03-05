@@ -1,0 +1,20 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-icons/core-icons.html">
+
+<polymer-element name="x-trigger" extends="core-icon-button" relative on-tap="{{toggle}}" noink>
+  <link rel="stylesheet" href="x-trigger.css">
+	<template>
+		<shadow></shadow>
+		<content></content>
+	</template>
+	<script>
+		Polymer({
+		  toggle: function() {
+		    if (!this.dropdown) {
+		      this.dropdown = this.querySelector('paper-dropdown');
+		    }
+		    this.dropdown && this.dropdown.toggle();
+		  }
+		});
+	</script>
+</polymer-element>

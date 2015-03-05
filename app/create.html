@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OPUS</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="icon" href="favicon.png" type="image/x-icon"/>
+  
+  <!-- build:css /styles/main.css -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- endbuild-->
+
+  <!-- build:js /bower_components/webcomponentsjs/webcomponents.min.js -->
+  <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="/bower_components/jqeury/dist/jquery.min.js"></script>
+  <!-- endbuild -->
+
+  <!-- will be replaced with /elements/elements.vulcanized.html -->
+  <link rel="import" href="/elements/elements.html">
+  <!-- endreplace-->
+
+	<style>
+		a {
+			color: white;
+		}
+		paper-shadow {
+			background-color: white;
+			width: 25%;
+			height: auto;
+			padding: 10px;
+		}
+	</style>
+</head>
+
+<body unresolved fullbleed layout vertical>
+	<div vertical layout style="height:100%; width:auto;">
+		<div flex style="padding:10px;">
+			<paper-fab onclick="window.history.back();" icon="arrow-back"> </paper-fab>
+		</div>
+		<div horizontal layout>
+			<div flex> </div>
+			<paper-shadow z="5">
+				<div vertical layout>
+					<div>
+						<h4 style="text-align: center;"> sign up </h4>
+					</div>
+					<div>
+						<paper-input-decorator label="email" floatingLabel="true">
+							<input is="paper-input" type="email"/>
+						</paper-input-decorator>
+						<paper-input-decorator label="password" floatingLabel="true">
+							<input is="paper-input" type="password"/>
+						</paper-input-decorator>
+						<paper-input-decorator label="reenter password" floatingLabel="true">
+							<input is="paper-input" type="password"/>
+						</paper-input-decorator><paper-input-decorator label="school" floatingLabel="true">
+							<input is="paper-input" type="text"/>
+						</paper-input-decorator>
+					</div>
+					<div style="margin-right:auto; margin-left:auto;">
+						<a href=" ">
+							<core-icon-button style="color:black; background-color:#e74c3c" icon="clear"></core-icon-button>
+						</a>
+						<a href="thanks.html">
+							<core-icon-button style="color:black; background-color:#2ecc71" icon="check"></core-icon-button>
+						</a>
+					</div>
+				</div>
+			</paper-shadow>
+			<div flex> </div>
+		</div>
+		<div flex> </div>
+	</div>
+		<!-- <index-footer id="footer"> </index-footer> -->
+	<script>
+  	Polymer({
+  
+  	});
+  </script>
+</body>
+
+</html>

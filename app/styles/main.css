@@ -42,3 +42,7 @@ core-scroll-header-panel::shadow #condensedHeaderBg {
   color: white;
   background-color: #03A9F4;
 }
+
+paper-item {
+  color: black;
+}

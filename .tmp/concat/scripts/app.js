@@ -6,11 +6,8 @@
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   var app = document.querySelector('#app');
   app.appName = 'OPUS';
-  app.refreshThis = function(){
-    location.reload();
-  };
+  app.user = true;
   
-
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
   app.addEventListener('template-bound', function() {

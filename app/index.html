@@ -17,6 +17,7 @@
 
   <!-- build:js /bower_components/webcomponentsjs/webcomponents.min.js -->
   <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="/bower_components/jqeury/dist/jquery.min.js"></script>
   <!-- endbuild -->
 
   <!-- will be replaced with /elements/elements.vulcanized.html -->
@@ -39,14 +40,17 @@
   
           <!-- Drawer Content -->
           <core-menu selected="0" selectedItem="{{item}}">
-            <core-item label="about" icon="home"></core-item>
-            <core-submenu label="account" icon="account-circle" selectedItem="{{subItem}}">
-              <core-item label="profile" icon="perm-contact-cal"></core-item>
+            <core-item label="about" icon="info"></core-item>
+            <core-submenu label="home" icon="account-circle" selectedItem="{{subItem}}" hidden?="{{user}}">
+              <core-item label="jobs" icon="work" if="{{user.student}}"></core-item>
+              <core-item label="post" icon="create" if="{{user.student}}"></core-item>
+              <core-item label="jobs" icon="work" if="{{user.business}}"></core-item>
+              <core-item label="post" icon="create" if="{{user.business}}"></core-item>
             </core-submenu>
-            <core-item label="jobs" icon="work"></core-item>
-            <core-item label="news" icon="announcement"></core-item>
-            <core-item label="contact" icon="create"></core-item>
-          </core-menu>
+            <core-item label="profile" icon="perm-contact-cal" hidden?="{{user}}"></core-item>
+            <core-item label="news" icon="announcement" hidden?="{{user}}"></core-item>
+            <core-item label="contact" icon="create" hidden?="{{user}}"></core-item>
+         </core-menu>
         </core-header-panel>
   
         <!-- Main -->
@@ -58,7 +62,17 @@
             <div flex></div>
             <h4>{{item.label}} | {{subItem.label}}</h4>
             <div class="bottom">
-              <core-icon-button icon="refresh" on-click="{{refreshThis}}"></core-icon-button>
+              <x-trigger icon="account-circle">
+        				<paper-dropdown class="no-padding" halign="left" valign="top">
+        					<div class="menu">
+        					  <a href="create.html">
+        					    <paper-item>Sign up</paper-item>
+        					  </a>
+        						<paper-item>Log in</paper-item>
+        						<paper-item>Log out</paper-item>
+          				</div>
+        				</paper-dropdown>
+    				  </x-trigger>
             </div>
           </core-toolbar>
   
