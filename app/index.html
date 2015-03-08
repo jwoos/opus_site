@@ -17,7 +17,7 @@
 
   <!-- build:js /bower_components/webcomponentsjs/webcomponents.min.js -->
   <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
-    <script src="/bower_components/jqeury/dist/jquery.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- endbuild -->
 
   <!-- will be replaced with /elements/elements.vulcanized.html -->
@@ -27,6 +27,7 @@
 
 <body unresolved fullbleed layout vertical>
   <template is="auto-binding" id="app">
+    <firebase-login id="baseLogin" user="{{user}}" statusKnown="{{statusKnown}}" location="https://opus.firebaseio.com/" on-login="{{onLogin}}" on-error="{{onLoginError}}"> </firebase-login>
     <div class="container">
       <core-drawer-panel>
   
@@ -65,17 +66,53 @@
               <x-trigger icon="account-circle">
         				<paper-dropdown class="no-padding" halign="left" valign="top">
         					<div class="menu">
-        					  <a href="create.html">
-        					    <paper-item>Sign up</paper-item>
-        					  </a>
-        						<paper-item>Log in</paper-item>
-        						<paper-item>Log out</paper-item>
+       					    <paper-item on-click="{{signupDialog}}" hidden?="{{!statusKnown || user}}">Sign up</paper-item>
+        						<paper-dialog transition="core-transition-center" id="dialog2" heading="Sign up" backdrop layered autoCloseDisabled="true">
+                      <div vertical layout>
+                        <div>
+                          <paper-input-decorator label="email" floatingLabel="true">
+                            <input is="paper-input" type="email" id="signupEmail"/>
+                          </paper-input-decorator>
+                          <paper-input-decorator label="password" floatingLabel="true">
+                            <input is="paper-input" type="password" id="signupPassword"/>
+                          </paper-input-decorator>
+                          <paper-input-decorator label="reenter password" floatingLabel="true">
+                            <input is="paper-input" type="password" id="signupPasswordRe"/>
+                          </paper-input-decorator><paper-input-decorator label="school" floatingLabel="true">
+                            <input is="paper-input" type="text" id="signupSchool"/>
+                          </paper-input-decorator>
+                        </div>
+                        <div style="margin-right:auto; margin-left:auto;">
+                          <core-icon-button style="color:black; background-color:#e74c3c" icon="clear" on-tap="{{clearConfirm2}}"></core-icon-button>
+                          <core-icon-button style="color:black; background-color:#2ecc71" icon="check"></core-icon-button>
+                        </div>
+                      </div>
+                    </paper-dialog>
+
+                    <paper-item on-click="{{loginDialog}}" hidden?="{{!statusKnown || user}}">Log in</paper-item>
+                    <paper-dialog transition="core-transition-center" id="dialog1" heading="Log in" backdrop layered>
+                      <div vertical layout>
+                        <div>
+                          <paper-input-decorator label="email" floatingLabel="true">
+                            <input is="paper-input" type="email"/>
+                          </paper-input-decorator>
+                          <paper-input-decorator label="password" floatingLabel="true">
+                            <input is="paper-input" type="password"/>
+                          </paper-input-decorator>
+                        </div>
+                        <center>
+                          <core-icon-button icon="launch">log in</core-icon-button>
+                        </center>
+                      </div>
+                    </paper-dialog>
+        						
+                    <paper-item on-click="{{logout}}" hidden?="{{!statusKnown || !user}}">Log out</paper-item>
           				</div>
         				</paper-dropdown>
     				  </x-trigger>
             </div>
           </core-toolbar>
-  
+
           <!-- Main Content -->
           <logo-description></logo-description>
           <br>
