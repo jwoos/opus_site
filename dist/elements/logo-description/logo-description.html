@@ -1,11 +1,14 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../../bower_components/paper-dialog/paper-dialog.html">
 
 <polymer-element name="logo-description" attributes="">
   <template>
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src=""> </script>
     <paper-shadow>
 			<div horizontal layout>
 				<div style="width:40%">
@@ -28,20 +31,55 @@
 							<small> get started </small>
 						</div>
 						<div self-end>
-							<a href="">
-								<paper-fab icon="arrow-forward"> </paper-fab>
-							</a>
+							<paper-fab icon="arrow-forward" on-tap="{{signupDialog}}"> </paper-fab>
 						</div>
 					</div>
 				</div>
+
+				<paper-dialog transition="core-transition-center" id="dialog2" heading="Sign up" backdrop layered autoCloseDisabled="true">
+                  	<div vertical layout>
+	                    <div>
+	                      <paper-input-decorator label="email" floatingLabel="true">
+	                        <input is="paper-input" type="email" id="signupEmail"/>
+	                      </paper-input-decorator>
+	                      <paper-input-decorator label="password" floatingLabel="true">
+	                        <input is="paper-input" type="password" id="signupPassword"/>
+	                      </paper-input-decorator>
+	                      <paper-input-decorator label="reenter password" floatingLabel="true">
+	                        <input is="paper-input" type="password" id="signupPasswordRe"/>
+	                      </paper-input-decorator><paper-input-decorator label="school" floatingLabel="true">
+	                        <input is="paper-input" type="text" id="signupSchool"/>
+	                      </paper-input-decorator>
+	                    </div>
+	                    <div style="margin-right:auto; margin-left:auto;">
+	                      <core-icon-button style="color:black; background-color:#e74c3c" icon="clear" on-tap="{{clearConfirm2}}"></core-icon-button>
+	                      <core-icon-button style="color:black; background-color:#2ecc71" icon="check"></core-icon-button>
+	                    </div>
+                 	</div>
+                </paper-dialog>
 			</div>
 		</paper-shadow>
   </template>
   <script>
     (function () {
-      Polymer({
-        // define element prototype here
-      });
+    	Polymer({
+    	// define element prototype here
+    		signupDialog: function() {
+    			this.$.dialog2.toggle();
+    		},
+    		clearConfirm2: function () {
+		    	var confirmValue = confirm('Are you sure you want to leave without signing up?');
+
+		    	console.log('confirmValue is' + ' ' + confirmValue);
+
+		    	if (confirmValue === true) {
+		    		//add clearing fields
+		        	this.$.dialog2.toggle();
+		      	} else {
+		        	//do something when confirmValue === false
+		    	}
+		    }
+    	});
     })();
   </script>
 </polymer-element>

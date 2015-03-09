@@ -34,6 +34,7 @@
       console.log('confirmValue is' + ' ' + confirmValue);
 
       if (confirmValue === true) {
+        //add clearing fields
         this.$.dialog2.toggle();
       } else {
         //do something when confirmValue === false

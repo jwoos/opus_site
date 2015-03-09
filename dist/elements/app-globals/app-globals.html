@@ -1,0 +1,28 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<polymer-element name="app-globals" attributes="values">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+  </template>
+  <script>
+  (function() {
+    var values = {};
+
+    Polymer('app-globals', {
+      ready: function() {
+        // this bit at least is missing from the example
+        this.values = values;
+        // initialize values from attributes (note: strings only)
+        for (var i = 0; i < this.attributes.length; ++i) {
+          var attr = this.attributes[i];
+          values[attr.nodeName] = attr.nodeValue;
+        }
+      }
+    });
+  })();
+  </script>
+</polymer-element>
