@@ -29,18 +29,14 @@
     };
 
     app.clearConfirm2 = function () {
-      var confirmValue = function() {
-        confirm('Are you sure you want to leave and clear all the fields?');
-      };
+      var confirmValue = confirm('Are you sure you want to leave without signing up?');
+
       console.log('confirmValue is' + ' ' + confirmValue);
 
       if (confirmValue === true) {
-        var input = document.getElementsByTagName('input').value;
-        input = '';
-        console.log(input);
         this.$.dialog2.toggle();
       } else {
-
+        //do something when confirmValue === false
       }
     };
     
