@@ -27,6 +27,16 @@
     app.signupDialog = function() {
       this.$.dialog2.toggle();
     };
+    app.signupDialogStudent = function() {
+      this.$.dialog2.toggle();
+      this.$.dialog3.toggle();
+    };
+    app.signupDialogBusiness = function() {
+      this.$.dialog4.toggle();
+    };
+    app.signupFinish = function() {
+      this.$.dialog4.toggle();
+    };
 
     app.clearConfirm2 = function () {
       var confirmValue = confirm('Are you sure you want to leave without signing up?');
