@@ -79,9 +79,6 @@
                           <paper-input-decorator label="reenter password" floatingLabel="true">
                             <input is="paper-input" type="password" id="signupPasswordRe"/>
                           </paper-input-decorator>
-                          <paper-input-decorator label="school" floatingLabel="true">
-                            <input is="paper-input" type="text" id="signupSchool"/>
-                          </paper-input-decorator>
                           <paper-radio-group>
                             <paper-radio-button label="student" on-tap="{{signupDialogStudent}}"> </paper-radio-button>
                             <paper-radio-button label="business" on-tap="{{signupDialogBusiness}"> </paper-radio-button>
@@ -94,35 +91,22 @@
                     </paper-dialog>
 
                     <!-- student -->
-                    <paper-dialog transition="core-transition-center" id="dialog3" heading="Sign up" backdrop layered autoCloseDisabled="true">
+                    <paper-dialog transition="core-transition-center" id="dialog3" heading="Student" backdrop layered autoCloseDisabled="true">
                       <div vertical layout>
                         <div>
-                          <paper-input-decorator label="email" floatingLabel="true">
-                            <input is="paper-input" type="email" id="signupEmail"/>
-                          </paper-input-decorator>
-                          <paper-input-decorator label="password" floatingLabel="true">
-                            <input is="paper-input" type="password" id="signupPassword"/>
-                          </paper-input-decorator>
-                          <paper-input-decorator label="reenter password" floatingLabel="true">
-                            <input is="paper-input" type="password" id="signupPasswordRe"/>
-                          </paper-input-decorator>
                           <paper-input-decorator label="school" floatingLabel="true">
                             <input is="paper-input" type="text" id="signupSchool"/>
                           </paper-input-decorator>
-                          <paper-radio-group>
-                            <paper-radio-button label="student"> </paper-radio-button>
-                            <paper-radio-button label="business"> </paper-radio-button>
-                          </paper-radio-group>
                         </div>
                         <div style="margin-right:auto; margin-left:auto;">
-                          <core-icon-button style="color:black; background-color:#e74c3c" icon="clear" on-tap="{{clearConfirm2}}"></core-icon-button>
+                          <core-icon-button style="color:black; background-color:#e74c3c" icon="arrow-back" on-tap="{{confirmBack}}"></core-icon-button>
                           <core-icon-button style="color:black; background-color:#2ecc71" icon="arrow-forward" on-tap="{{signupFinish}}"></core-icon-button>
                         </div>
                       </div>
                     </paper-dialog>
 
                     <!-- business -->
-                    <paper-dialog transition="core-transition-center" id="dialog4" heading="Sign up" backdrop layered autoCloseDisabled="true">
+                    <paper-dialog transition="core-transition-center" id="dialog4" heading="Business" backdrop layered autoCloseDisabled="true">
                       <div vertical layout>
                         <div>
                           <paper-input-decorator label="email" floatingLabel="true">

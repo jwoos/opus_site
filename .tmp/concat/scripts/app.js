@@ -29,6 +29,8 @@
     };
     app.signupDialogStudent = function() {
       this.$.dialog2.toggle();
+      window.resizeTo(100, 100);
+      window.resizeTo(-100, -100);
       this.$.dialog3.toggle();
     };
     app.signupDialogBusiness = function() {
@@ -36,6 +38,13 @@
     };
     app.signupFinish = function() {
       this.$.dialog4.toggle();
+    };
+
+    app.confirmBack = function() {
+      this.$.dialog3.toggle();
+      window.resizeBy(100, 100);
+      window.resizeBy(-100, -100);
+      this.$.dialog2.toggle();
     };
 
     app.clearConfirm2 = function () {
