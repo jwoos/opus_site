@@ -1,0 +1,67 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="signup-dialog" attributes="">
+  <template>
+    <link rel="stylesheet" href="signup-dialog.css">
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <section layout vertical is="auto-binding">
+      <div>
+        <h4 class="text-center"> <strong> Sign Up </strong></h4>
+      </div>
+      <paper-tabs selected="{{ selected }}" selectedindex="0" horizontal center layout noink>
+          <paper-tab active>
+            <h4> student </h4>
+          </paper-tab>
+          <paper-tab>
+            <h4> businesses </h4>
+          </paper-tab>
+        </paper-tabs>
+        <core-animated-pages selected="{{ selected }}" selectedindex="0" notap transitions="cross-fade-all" flex>
+          <section active>
+            <div vertical layout>
+              <div class="contain-this">
+                <paper-input-decorator label="email" floatingLabel="true">
+                  <input is="paper-input" type="email" id="signupEmail"/>
+                </paper-input-decorator>
+                <paper-input-decorator label="password" floatingLabel="true">
+                  <input is="paper-input" type="password" id="signupPassword"/>
+                </paper-input-decorator>
+                <paper-input-decorator label="reenter password" floatingLabel="true">
+                  <input is="paper-input" type="password" id="signupPasswordRe"/>
+                </paper-input-decorator>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div vertical layout>
+              <div class="contain-this">
+                <paper-input-decorator label="email" floatingLabel="true">
+                  <input is="paper-input" type="email" id="signupEmail"/>
+                </paper-input-decorator>
+                <paper-input-decorator label="password" floatingLabel="true">
+                  <input is="paper-input" type="password" id="signupPassword"/>
+                </paper-input-decorator>
+                <paper-input-decorator label="reenter password" floatingLabel="true">
+                  <input is="paper-input" type="password" id="signupPasswordRe"/>
+                </paper-input-decorator>
+              </div>
+            </div>
+          </section>
+      </core-animated-pages>
+    </section>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        // define element prototype here
+      });
+    })();
+  </script>
+</polymer-element>

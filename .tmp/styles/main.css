@@ -21,9 +21,7 @@ body {
 }
 
 [drawer] {
-  background-color :host {
-        display: block;
-      }: #EEEEEE;
+  background-color: #EEEEEE;
 }
 
 core-scroll-header-panel {
@@ -53,9 +51,12 @@ paper-item {
   color: black;
 }
 
-html /deep/ #dialog1,
+html /deep/ #dialog1 {
+  width:30%;
+  height:30;
+}
 html /deep/ #dialog2 {
-  width: 50%;
+  width: 40%;
   height: 50%;
 }
 

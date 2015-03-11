@@ -68,24 +68,12 @@
         					<div class="menu">
        					    <paper-item on-click="{{signupDialog}}" hidden?="{{!statusKnown || user}}">Sign up</paper-item>
         						<paper-dialog transition="core-transition-center" id="dialog2" backdrop layered>
-                      <login-dialog fit> </login-dialog>
-                   </paper-dialog>
+                      <signup-dialog fit> </signup-dialog>
+                    </paper-dialog>
 
                     <paper-item on-click="{{loginDialog}}" hidden?="{{!statusKnown || user}}">Log in</paper-item>
                     <paper-dialog transition="core-transition-center" id="dialog1" heading="Log in" backdrop layered>
-                      <div vertical layout>
-                        <div>
-                          <paper-input-decorator label="email" floatingLabel="true">
-                            <input is="paper-input" type="email"/>
-                          </paper-input-decorator>
-                          <paper-input-decorator label="password" floatingLabel="true">
-                            <input is="paper-input" type="password"/>
-                          </paper-input-decorator>
-                        </div>
-                        <center>
-                          <core-icon-button icon="launch">log in</core-icon-button>
-                        </center>
-                      </div>
+                      <login-dialog> </login-dialog>
                     </paper-dialog>
         						
                     <paper-item on-click="{{logout}}" hidden?="{{!statusKnown || !user}}">Log out</paper-item>
