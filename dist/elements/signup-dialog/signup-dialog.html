@@ -4,6 +4,7 @@
 <link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-slider/paper-slider.html">
 
 <polymer-element name="signup-dialog" attributes="">
   <template>
@@ -36,6 +37,15 @@
                 <paper-input-decorator label="reenter password" floatingLabel="true">
                   <input is="paper-input" type="password" id="signupPasswordRe"/>
                 </paper-input-decorator>
+                <paper-input-decorator label="school" floatingLabel="true">
+                  <input is="paper-input" type="text" id="signupSchool"/>
+                </paper-input-decorator>
+                <p class="text-center">grade: {{grade}}</p>
+                <div horizontal layout>
+                  <div flex> </div>
+                  <paper-slider min="9" max="12" pin="true" immediateValue="{{grade}}"> </paper-slider>
+                  <div flex> </div>
+                </div>
               </div>
             </div>
           </section>
