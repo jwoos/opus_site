@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
 
-    <script src=""> </script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+
     <paper-shadow>
 			<div horizontal layout>
 				<div style="width:40%">
@@ -37,7 +38,7 @@
 				</div>
 
 				<paper-dialog transition="core-transition-center" id="dialog2" heading="Sign up" backdrop layered autoCloseDisabled="true">
-                  	<div vertical layout>
+                	<div vertical layout>
 	                    <div>
 	                      <paper-input-decorator label="email" floatingLabel="true">
 	                        <input is="paper-input" type="email" id="signupEmail"/>
@@ -48,19 +49,45 @@
 	                      <paper-input-decorator label="reenter password" floatingLabel="true">
 	                        <input is="paper-input" type="password" id="signupPasswordRe"/>
 	                      </paper-input-decorator>
-	                      <paper-input-decorator label="school" floatingLabel="true">
-	                        <input is="paper-input" type="text" id="signupSchool"/>
-	                      </paper-input-decorator>
 	                      <paper-radio-group>
-                            <paper-radio-button label="student"> </paper-radio-button>
-                            <paper-radio-button label="business"> </paper-radio-button>
-                          </paper-radio-group>
+	                        <paper-radio-button label="student" on-tap="{{signupDialogStudent}}"> </paper-radio-button>
+	                        <paper-radio-button label="business" on-tap="{{signupDialogBusiness}}"> </paper-radio-button>
+	                      </paper-radio-group>
 	                    </div>
-	                    <div style="margin-right:auto; margin-left:auto;">
-	                      <core-icon-button style="color:black; background-color:#e74c3c" icon="clear" on-tap="{{clearConfirm2}}"></core-icon-button>
-	                      <core-icon-button style="color:black; background-color:#2ecc71" icon="arrow-forward" on-tap="{{}}"></core-icon-button>
-	                    </div>
-                 	</div>
+                    <div style="margin-right:auto; margin-left:auto;">
+                      <core-icon-button style="color:black; background-color:#e74c3c" icon="clear" on-tap="{{clearConfirm2}}"></core-icon-button>
+                    </div>
+                  </div>
+                </paper-dialog>
+
+                <!-- student -->
+                <paper-dialog transition="core-transition-center" id="dialog3" heading="Student" backdrop layered autoCloseDisabled="true">
+                  <div vertical layout>
+                    <div>
+                      <paper-input-decorator label="school" floatingLabel="true">
+                        <input is="paper-input" type="text" id="signupSchool"/>
+                      </paper-input-decorator>
+                    </div>
+                    <div style="margin-right:auto; margin-left:auto;">
+                      <core-icon-button style="color:black; background-color:#e74c3c" icon="arrow-back" on-tap="{{confirmBack}}"></core-icon-button>
+                      <core-icon-button style="color:black; background-color:#2ecc71" icon="arrow-forward" on-tap="{{signupFinish}}"></core-icon-button>
+                    </div>
+                  </div>
+                </paper-dialog>
+
+                <!-- business -->
+                <paper-dialog transition="core-transition-center" id="dialog4" heading="Business" backdrop layered autoCloseDisabled="true">
+                  <div vertical layout>
+                    <div>
+                      <paper-input-decorator label="company name" floatingLabel="true">
+                        <input is="paper-input" type="email" id="signupCompany"/>
+                      </paper-input-decorator>
+                    </div>
+                    <div style="margin-right:auto; margin-left:auto;">
+                      <core-icon-button style="color:black; background-color:#e74c3c" icon="clear" on-tap="{{confirmBack}}"></core-icon-button>
+                      <core-icon-button style="color:black; background-color:#2ecc71" icon="arrow-forward" on-tap="{{signupFinish}}"></core-icon-button>
+                    </div>
+                  </div>
                 </paper-dialog>
 			</div>
 		</paper-shadow>
@@ -69,8 +96,43 @@
     (function () {
     	Polymer({
     	// define element prototype here
+    		login: function() {
+    			this.$.baseLogin.login();
+    		},
+    		logout: function() {
+    			this.$.baseLogin.logout();
+    		},
+
     		signupDialog: function() {
     			this.$.dialog2.toggle();
+    		},
+    		signupDialogStudent: function() {
+    			this.$.dialog2.toggle();
+    			this.$.dialog3.toggle();
+    		},
+    		signupDialogBusiness: function() {
+    			this.$.dialog2.toggle();
+    			this.$.dialog4.toggle();
+    		},
+    		signupFinish: function() {
+    			if ($('#dialog2').hasClass('core-opened')) {
+    				this.$.dialog4.toggle();
+    			} else {
+    				this.$dialog3.toggle();
+    			}
+    		},
+
+	    	hasClass: function hasClass(el, cls) {
+				return el.className && new RegExp("(\\s|^)" + cls + "(\\s|$)").test(el.className);
+			},
+    		confirmBack: function() {
+    			if ($('#dialog3').hasClass('core-opened') === true) {
+    				this.$.dialog3.toggle();
+    				this.$.dialog2.toggle();
+    			} else {
+    				this.$.dialog4.toggle();
+    				this.$.dialog2.toggle();
+    			}
     		},
     		clearConfirm2: function () {
 		    	var confirmValue = confirm('Are you sure you want to leave without signing up?');

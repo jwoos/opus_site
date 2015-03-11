@@ -29,14 +29,10 @@
     };
     app.signupDialogStudent = function() {
       this.$.dialog2.toggle();
-      window.resizeTo(100, 100);
-      window.resizeTo(-100, -100);
       this.$.dialog3.toggle();
     };
     app.signupDialogBusiness = function() {
       this.$.dialog2.toggle();
-      window.resizeTo(100, 100);
-      window.resizeTo(-100, -100);
       this.$.dialog4.toggle();
     };
     app.signupFinish = function() {
@@ -48,7 +44,8 @@
     };
 
     app.confirmBack = function() {
-      if ($('#dialog3').hasClass('core-opened')) {
+      var hasClass = document.getElementById('dialog3').className;
+      if (hasClass = 'core-opened') {
         this.$.dialog3.toggle();
         window.resizeTo(100, 100);
         window.resizeTo(-100, -100);

@@ -1,3 +1,7 @@
+:host {
+    display: block;
+  }
+
 html, body {
   height: 100%;
   margin: 0;
@@ -17,7 +21,9 @@ body {
 }
 
 [drawer] {
-  background-color: #EEEEEE;
+  background-color :host {
+        display: block;
+      }: #EEEEEE;
 }
 
 core-scroll-header-panel {
@@ -45,4 +51,14 @@ core-scroll-header-panel::shadow #condensedHeaderBg {
 
 paper-item {
   color: black;
+}
+
+html /deep/ #dialog1,
+html /deep/ #dialog2 {
+  width: 50%;
+  height: 50%;
+}
+
+login-dialog {
+  height: 500px;
 }

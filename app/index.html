@@ -67,71 +67,9 @@
         				<paper-dropdown class="no-padding" halign="left" valign="top">
         					<div class="menu">
        					    <paper-item on-click="{{signupDialog}}" hidden?="{{!statusKnown || user}}">Sign up</paper-item>
-        						<paper-dialog transition="core-transition-center" id="dialog2" heading="Sign up" backdrop layered autoCloseDisabled="true">
-                      <div vertical layout>
-                        <div>
-                          <paper-input-decorator label="email" floatingLabel="true">
-                            <input is="paper-input" type="email" id="signupEmail"/>
-                          </paper-input-decorator>
-                          <paper-input-decorator label="password" floatingLabel="true">
-                            <input is="paper-input" type="password" id="signupPassword"/>
-                          </paper-input-decorator>
-                          <paper-input-decorator label="reenter password" floatingLabel="true">
-                            <input is="paper-input" type="password" id="signupPasswordRe"/>
-                          </paper-input-decorator>
-                          <paper-radio-group>
-                            <paper-radio-button label="student" on-tap="{{signupDialogStudent}}"> </paper-radio-button>
-                            <paper-radio-button label="business" on-tap="{{signupDialogBusiness}}"> </paper-radio-button>
-                          </paper-radio-group>
-                        </div>
-                        <div style="margin-right:auto; margin-left:auto;">
-                          <core-icon-button style="color:black; background-color:#e74c3c" icon="clear" on-tap="{{clearConfirm2}}"></core-icon-button>
-                        </div>
-                      </div>
-                    </paper-dialog>
-
-                    <!-- student -->
-                    <paper-dialog transition="core-transition-center" id="dialog3" heading="Student" backdrop layered autoCloseDisabled="true">
-                      <div vertical layout>
-                        <div>
-                          <paper-input-decorator label="school" floatingLabel="true">
-                            <input is="paper-input" type="text" id="signupSchool"/>
-                          </paper-input-decorator>
-                        </div>
-                        <div style="margin-right:auto; margin-left:auto;">
-                          <core-icon-button style="color:black; background-color:#e74c3c" icon="arrow-back" on-tap="{{confirmBack}}"></core-icon-button>
-                          <core-icon-button style="color:black; background-color:#2ecc71" icon="arrow-forward" on-tap="{{signupFinish}}"></core-icon-button>
-                        </div>
-                      </div>
-                    </paper-dialog>
-
-                    <!-- business -->
-                    <paper-dialog transition="core-transition-center" id="dialog4" heading="Business" backdrop layered autoCloseDisabled="true">
-                      <div vertical layout>
-                        <div>
-                          <paper-input-decorator label="email" floatingLabel="true">
-                            <input is="paper-input" type="email" id="signupEmail"/>
-                          </paper-input-decorator>
-                          <paper-input-decorator label="password" floatingLabel="true">
-                            <input is="paper-input" type="password" id="signupPassword"/>
-                          </paper-input-decorator>
-                          <paper-input-decorator label="reenter password" floatingLabel="true">
-                            <input is="paper-input" type="password" id="signupPasswordRe"/>
-                          </paper-input-decorator>
-                          <paper-input-decorator label="school" floatingLabel="true">
-                            <input is="paper-input" type="text" id="signupSchool"/>
-                          </paper-input-decorator>
-                          <paper-radio-group>
-                            <paper-radio-button label="student"> </paper-radio-button>
-                            <paper-radio-button label="business"> </paper-radio-button>
-                          </paper-radio-group>
-                        </div>
-                        <div style="margin-right:auto; margin-left:auto;">
-                          <core-icon-button style="color:black; background-color:#e74c3c" icon="clear" on-tap="{{confirmBack}}"></core-icon-button>
-                          <core-icon-button style="color:black; background-color:#2ecc71" icon="arrow-forward" on-tap="{{signupFinish}}"></core-icon-button>
-                        </div>
-                      </div>
-                    </paper-dialog>
+        						<paper-dialog transition="core-transition-center" id="dialog2" backdrop layered>
+                      <login-dialog fit> </login-dialog>
+                   </paper-dialog>
 
                     <paper-item on-click="{{loginDialog}}" hidden?="{{!statusKnown || user}}">Log in</paper-item>
                     <paper-dialog transition="core-transition-center" id="dialog1" heading="Log in" backdrop layered>
