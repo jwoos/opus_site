@@ -2,9 +2,12 @@
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button-base.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="../../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../d-calendar/d-calendar.html">
 
 <polymer-element name="signup-dialog" attributes="">
   <template>
@@ -24,21 +27,24 @@
             <h4> businesses </h4>
           </paper-tab>
         </paper-tabs>
+
+        <!-- tabs -->
         <core-animated-pages selected="{{ selected }}" selectedindex="0" notap transitions="cross-fade-all" flex>
+        <!-- students -->
           <section active>
             <div vertical layout>
               <div class="contain-this">
                 <paper-input-decorator label="email" floatingLabel="true">
-                  <input is="paper-input" type="email" id="signupEmail"/>
+                  <input is="paper-input" type="email" value="{{signupEmail}}"/>
                 </paper-input-decorator>
                 <paper-input-decorator label="password" floatingLabel="true">
-                  <input is="paper-input" type="password" id="signupPassword"/>
+                  <input is="paper-input" type="password" value="{{signupPassword}}"/>
                 </paper-input-decorator>
                 <paper-input-decorator label="reenter password" floatingLabel="true">
-                  <input is="paper-input" type="password" id="signupPasswordRe"/>
+                  <input is="paper-input" type="password" value="{{signupPasswordRe}}"/>
                 </paper-input-decorator>
                 <paper-input-decorator label="school" floatingLabel="true">
-                  <input is="paper-input" type="text" id="signupSchool"/>
+                  <input is="paper-input" type="text" value="{{signupSchool}}"/>
                 </paper-input-decorator>
                 <p class="text-center">grade: {{grade}}</p>
                 <div horizontal layout>
@@ -46,21 +52,57 @@
                   <paper-slider min="9" max="12" pin="true" immediateValue="{{grade}}"> </paper-slider>
                   <div flex> </div>
                 </div>
+                <br>
+                <div horizontal layout>
+                  <div>
+                    <core-icon-button on-click="{{selectDate}}" icon="view-module" active> </core-icon>
+                  </div>
+                  <div flex>
+                    <p>{{dob}} </p>
+                  </div>
+                </div>
+                <br>
+                <div horizontal layout>
+                  <div flex> </div>
+                  <paper-button raised on-click="{{studentSignup}}">
+                    <core-icon icon="check"> </core-icon>
+                  </paper-button>
+                  <div flex> </div>
+                </div>
+                <p class="hidden">{{type}}</p>
               </div>
             </div>
           </section>
+
+          <!-- calendar -->
+          <paper-dialog transition="core-transition-center" id="calendar" layered>
+            <d-calendar selectedDate="{{dob}}"> </d-calendar>
+          </paper-dialog>
+
+          <!-- business -->
           <section>
             <div vertical layout>
               <div class="contain-this">
                 <paper-input-decorator label="email" floatingLabel="true">
-                  <input is="paper-input" type="email" id="signupEmail"/>
+                  <input is="paper-input" type="email" value="{{signupEmail}}"/>
                 </paper-input-decorator>
                 <paper-input-decorator label="password" floatingLabel="true">
-                  <input is="paper-input" type="password" id="signupPassword"/>
+                  <input is="paper-input" type="password" value="{{signupPassword}}"/>
                 </paper-input-decorator>
                 <paper-input-decorator label="reenter password" floatingLabel="true">
-                  <input is="paper-input" type="password" id="signupPasswordRe"/>
+                  <input is="paper-input" type="password" value="{{signupPasswordRe}}"/>
                 </paper-input-decorator>
+                <paper-input-decorator label="company" floatingLabel="true">
+                  <input is="paper-input" type="text" value="{{signupCompany}}"/>
+                </paper-input-decorator>
+                <div horizontal layout>
+                  <div flex> </div>
+                  <paper-button raised on-click="{{businessSignup}}">
+                    <core-icon icon="check"> </core-icon>
+                  </paper-button>
+                  <div flex> </div>
+                </div>
+                <p class="hidden">{{type}}</p>
               </div>
             </div>
           </section>
@@ -69,9 +111,41 @@
   </template>
   <script>
     (function () {
-      Polymer({
+      Polymer('signup-dialog', {
+        ready: function() {
+          //functions to run when ready
+        },
         // define element prototype here
+        studentSignup: function() {
+          this.type = 'student';
+          console.log(this.type);
+        },
+        businessSignup: function() {
+          this.type = 'business';
+          console.log(this.type);
+        },
+        selectDate: function() {
+          this.$.calendar.toggle();
+        }
       });
+
+      
+ /* window.addEventListener('template-bound', function(){
+    var sandbox = document.getElementById('sandbox');
+
+    sandbox.dateSelected = function(ev, detail, sender){
+      this.updateDateInputValue();
+    }
+
+    sandbox.updateDateInputValue = function(){
+      sandbox.$.dateinput.value = PolymerExpressions.prototype.date(this.selectedDate);
+    }
+    sandbox.updateDateInputValue();
+
+  })
+  */  
+
+
     })();
   </script>
 </polymer-element>

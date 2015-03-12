@@ -23,3 +23,8 @@ paper-button{
 section{
 	height:auto;
 }
+html /deep/ #calendar {
+  	width:500px;
+  	height:500px;
+	background-color: black;
+}

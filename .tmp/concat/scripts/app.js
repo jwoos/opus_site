@@ -26,7 +26,7 @@
     };
     app.signupDialog = function() {
       this.$.dialog2.toggle();
-    };      
+    };
 
     app.clearConfirm2 = function () {
       var confirmValue = confirm('Are you sure you want to leave without signing up?');
