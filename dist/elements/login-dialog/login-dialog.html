@@ -3,6 +3,7 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/core-input/core-input.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 
 <polymer-element name="login-dialog" attributes="">
   <template>
@@ -10,6 +11,11 @@
 
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- firebase -->
+    <firebase-login id="githubLogin" provider="github" user="{{user}}" statusKnown="{{statusKnown}}" location="https://opus.firebaseio.com/"> </firebase-login>
+    <firebase-login id="facebookLogin" provider="facebook" user="{{user}}" statusKnown="{{statusKnown}}" location="https://opus.firebaseio.com/"> </firebase-login>
+    <firebase-login id="googleLogin" provider="google" user="{{user}}" statusKnown="{{statusKnown}}" location="https://opus.firebaseio.com/"> </firebase-login>
 
     <div vertical layout>
       <div class="contain-this">
@@ -28,17 +34,17 @@
       <div class="row">
         <div class="col-md-4">
           <center>
-            <core-icon-button src="../../images/fb.png" class="big"> </core-icon>
+            <paper-icon-button src="../../images/fb.png" class="big" on-click="{{facebookLogin}}"> </paper-icon-button>
           </center>
         </div>
         <div class="col-md-4">
           <center>
-            <core-icon-button src="../../images/google.png" class="big"> </core-icon>
+            <paper-icon-button src="../../images/google.png" class="big" on-click="{{googleLogin}}"> </paper-icon-button>
           </center>
         </div>
         <div class="col-md-4">
           <center>
-            <core-icon-button src="../../images/github.png" class="big"> </core-icon>
+            <paper-icon-button src="../../images/github.png" class="big" on-click="{{githubLogin}}"> </paper-icon-button>
           </center>
         </div>
       </div>
@@ -61,6 +67,18 @@
               window.location.reload();
             }
           });
+        },
+        facebookLogin: function() {
+          this.$.facebookLogin.login();
+          window.location.reload();
+        },
+       githubLogin: function() {
+          this.$.githubLogin.login();
+          window.location.reload();
+        },
+        googleLogin: function() {
+          this.$.googleLogin.login();
+          window.location.reload();
         }
       });
     })();
