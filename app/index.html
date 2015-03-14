@@ -42,7 +42,7 @@
           <!-- Drawer Content -->
           <core-menu selected="0" selectedItem="{{item}}" selected="{{route}}" valueattr="hash">
             <core-item label="about" icon="info" >
-              <a href="#about"> </a>
+              <a href="#"> </a>
             </core-item>
             <core-submenu label="home" icon="home" selectedItem="{{subItem}}" hidden?="{{statusKnown || user}}">
               <core-item label="jobs" icon="work"></core-item>
@@ -95,7 +95,7 @@
           <flatiron-director route="{{route}}" autoHash></flatiron-director>
           <core-animated-pages valueattr="hash" selected="{{route}}" transitions="cross-fade-all">
             <!-- about page -->
-            <section hash="about">
+            <section hash="">
               <div>
                 <page-about> </page-about>
               </div>
