@@ -40,17 +40,17 @@
           </core-toolbar>
   
           <!-- Drawer Content -->
-          <core-menu selected="0" selectedItem="{{item}}">
-            <core-item label="about" icon="info"></core-item>
-            <core-submenu label="home" icon="account-circle" selectedItem="{{subItem}}" hidden?="{{user}}">
+          <core-menu selected="1" selectedItem="{{item}}">
+            <core-item label="about" icon="info" hidden?="{{!statusKnown || user}}"></core-item>
+            <core-submenu label="home" icon="account-circle" selectedItem="{{subItem}}" hidden?="{{!statusKnown || !user}}">
               <core-item label="jobs" icon="work" if="{{user.student}}"></core-item>
               <core-item label="post" icon="create" if="{{user.student}}"></core-item>
               <core-item label="jobs" icon="work" if="{{user.business}}"></core-item>
               <core-item label="post" icon="create" if="{{user.business}}"></core-item>
             </core-submenu>
-            <core-item label="profile" icon="perm-contact-cal" hidden?="{{user}}"></core-item>
-            <core-item label="news" icon="announcement" hidden?="{{user}}"></core-item>
-            <core-item label="contact" icon="create" hidden?="{{user}}"></core-item>
+            <core-item label="profile" icon="perm-contact-cal" hidden?="{{!statusKnown || !user}}"></core-item>
+            <core-item label="news" icon="announcement"></core-item>
+            <core-item label="contact" icon="create"></core-item>
          </core-menu>
         </core-header-panel>
   

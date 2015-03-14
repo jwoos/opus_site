@@ -14,22 +14,54 @@
     <div vertical layout>
       <div class="contain-this">
         <paper-input-decorator label="email" floatingLabel="true">
-          <input is="paper-input" type="email"/>
+          <input is="paper-input" type="email" value="{{email}}"/>
         </paper-input-decorator>
         <paper-input-decorator label="password" floatingLabel="true">
-          <input is="paper-input" type="password"/>
+          <input is="paper-input" type="password" value="{{password}}"/>
         </paper-input-decorator>
       </div>
       <br>
       <center>
-        <core-icon-button icon="launch">log in</core-icon-button>
+        <core-icon-button icon="launch" on-click="{{login}}">log in</core-icon-button>
       </center>
+      <br>
+      <div class="row">
+        <div class="col-md-4">
+          <center>
+            <core-icon-button src="../../images/fb.png" class="big"> </core-icon>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <core-icon-button src="../../images/google.png" class="big"> </core-icon>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <core-icon-button src="../../images/github.png" class="big"> </core-icon>
+          </center>
+        </div>
+      </div>
     </div>
   </template>
   <script>
     (function () {
       Polymer({
         // define element prototype here
+        login: function() {
+          var ref = new Firebase('https://opus.firebaseio.com');
+          ref.authWithPassword({
+            email: this.email,
+            password: this.password
+          }, function(error, authData) {
+            if (error) {
+              console.log('Login Failed', error);
+            } else {
+              console.log('Authenticated successfully with paylod:', authData);
+              window.location.reload();
+            }
+          });
+        }
       });
     })();
   </script>

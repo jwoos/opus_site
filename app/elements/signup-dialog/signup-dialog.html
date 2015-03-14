@@ -8,6 +8,7 @@
 <link rel="import" href="../../../bower_components/paper-slider/paper-slider.html">
 <link rel="import" href="../../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../d-calendar/d-calendar.html">
+<link rel="import" href="../login-dialog/login-dialog.html">
 
 <polymer-element name="signup-dialog" attributes="">
   <template>
@@ -18,7 +19,14 @@
     <section layout vertical is="auto-binding">
       <div>
         <h4 class="text-center"> <strong> Sign Up </strong></h4>
+        <p class="text-center">You can also login with Facebook, Github, or Google. Check the <paper-button on-click="{{loginDialog}}">login</paper-button> page.</p>
       </div>
+
+      <!--login dialog -->
+      <paper-dialog transition="core-transition-center" id="login" heading="Log in" backdrop layered>
+        <login-dialog> </login-dialog>
+      </paper-dialog>
+
       <paper-tabs selected="{{ selected }}" selectedindex="0" horizontal center layout noink>
           <paper-tab active>
             <h4> student </h4>
@@ -119,6 +127,25 @@
         studentSignup: function() {
           this.type = 'student';
           console.log(this.type);
+//          if (signupPassword == signupPasswordRe) {
+            var ref = new Firebase('https://opus.firebaseio.com');
+            ref.createUser({
+              email: this.signupEmail,
+              password: this.signupPassword,
+              school: this.signupSchool,
+              grade: this.grade,
+              birthdate: this.dob,
+              type: this.type
+            }, function(error, userData) {
+              if (error) {
+                console.log('Error creating user:', error);
+              } else {
+                console.log('Successfully created user account with uid:', userData.uid);
+                alert('Your account has been successfully created!');
+                window.location.reload();
+              }
+            });
+//          };
         },
         businessSignup: function() {
           this.type = 'business';
@@ -126,26 +153,25 @@
         },
         selectDate: function() {
           this.$.calendar.toggle();
+        },
+        loginDialog: function() {
+          this.$.login.toggle();
+        },
+        login: function() {
+          var ref = new Firebase('https://opus.firebaseio.com');
+          ref.authWithPassword({
+            email: this.email,
+            password: this.password
+          }, function(error, authData) {
+            if (error) {
+              console.log('Login Failed', error);
+            } else {
+              console.log('Authenticated successfully with paylod:', authData);
+              window.location.reload();
+            }
+          });
         }
       });
-
-      
- /* window.addEventListener('template-bound', function(){
-    var sandbox = document.getElementById('sandbox');
-
-    sandbox.dateSelected = function(ev, detail, sender){
-      this.updateDateInputValue();
-    }
-
-    sandbox.updateDateInputValue = function(){
-      sandbox.$.dateinput.value = PolymerExpressions.prototype.date(this.selectedDate);
-    }
-    sandbox.updateDateInputValue();
-
-  })
-  */  
-
-
     })();
   </script>
 </polymer-element>

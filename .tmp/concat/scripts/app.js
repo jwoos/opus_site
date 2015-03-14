@@ -14,11 +14,9 @@
   });
 
   window.addEventListener('polymer-ready', function(e) {
-    app.login = function() {
-      this.$.baseLogin.login();
-    };
     app.logout = function() {
       this.$.baseLogin.logout();
+      window.location.reload();
     };
 
     app.loginDialog = function() {

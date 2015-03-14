@@ -28,3 +28,7 @@ html /deep/ #calendar {
   	height:500px;
 	background-color: black;
 }
+html /deep/ #dialog1 {
+  width:30%;
+  height:30;
+}
