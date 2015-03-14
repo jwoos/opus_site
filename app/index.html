@@ -40,7 +40,7 @@
           </core-toolbar>
   
           <!-- Drawer Content -->
-          <core-menu selected="1" selectedItem="{{item}}">
+          <core-menu selected="0" selectedItem="{{item}}">
             <core-item label="about" icon="info" hidden?="{{!statusKnown || user}}"></core-item>
             <core-submenu label="home" icon="account-circle" selectedItem="{{subItem}}" hidden?="{{!statusKnown || !user}}">
               <core-item label="jobs" icon="work" if="{{user.student}}"></core-item>
