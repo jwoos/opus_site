@@ -9,8 +9,9 @@
 
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
-  app.addEventListener('template-bound', function() {
+  app.addEventListener('template-bound', function(e) {
     console.log('template bound');
+    this.route = this.route || DEFAULT_ROUTE;
   });
 
   window.addEventListener('polymer-ready', function(e) {
