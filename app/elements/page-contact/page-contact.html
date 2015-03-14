@@ -1,0 +1,58 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../../bower_components/core-field/core-field.html">
+<link rel="import" href="../github-card/github-card.html">
+
+<polymer-element name="page-contact" attributes="">
+  <template>
+    <link rel="stylesheet" href="page-contact.css">
+
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <paper-shadow>
+            <h1 class="text-center"> contact us </h1>
+            <p class="text-center"> report any bugs or ask a question! </p>
+            <div class="row">
+              <div class="col-md-6"> 
+                <github-card> </github-card>
+                <br>
+              </div>
+              <div class="col-md-6">
+                <core-field>
+                  <core-icon icon="send"> </core-icon>
+                  <h4> nyc.opus@gmail.com </h4>
+                </core-field>
+                <a href="https://www.facebook.com/nyc.opus" target="_blank">
+                  <core-field>
+                    <core-icon src="../../images/fb.png"> </core-icon>
+                    <h4> nyc.opus </h4>
+                  </core-field>
+                </a>
+                <a href="https://twitter.com/Opus_App" target="_blank">
+                  <core-field>
+                    <core-icon src="../../images/twitter.png"> </core-icon>
+                    <h4> @Opus_App </h4>
+                  </core-field>
+                </a>
+              </div>
+            </div>
+          </paper-shadow>
+        </div>
+      </div>
+    </div>
+
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        // define element prototype here
+      });
+    })();
+  </script>
+</polymer-element>

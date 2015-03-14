@@ -1,0 +1,52 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
+
+<polymer-element name="github-card" attributes="">
+  <template>
+    <link rel="stylesheet" href="github-card.css">
+
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <div class="card">
+      <div class="row">
+        <div class="col-md-12">
+          <br>
+          <div horizontal layout>
+            <div flex>
+              <a href="https://github.com/jwoos" target="_blank">
+                <core-icon src="../../images/githubbw.png"> </core-icon>
+              </a>
+            </div>
+            <div class="picture">
+              <a href="http://jwoos.github.io/" target="_blank">
+                <img class="img-responsive center-block" src="../../images/githubcard.jpg">
+              </a>
+            </div>
+            <div flex> </div>
+          </div>
+
+          <div class="bottom text-center">
+            <br>
+            <div>
+              <h4><strong>username</strong>: jwoos</h4>
+            </div>
+            <div>
+             <h4><strong>name</strong>: Jun Woo Shin</h4>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    (function () {
+      Polymer({
+        // define element prototype here
+      });
+    })();
+  </script>
+</polymer-element>

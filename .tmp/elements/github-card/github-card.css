@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+.picture {
+	width:100px;
+	height:100px;
+}
+img {
+	border-radius: 1000px;
+}
+.card {
+	background-color: #7f8c8d;
+	border-radius: 10px;
+}
+.bottom {
+	background-color: black;
+	border-radius: 0px 0px 10px 10px;
+	color: white;
+}
