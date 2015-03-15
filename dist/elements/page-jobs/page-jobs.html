@@ -1,0 +1,43 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/firebase-element/firebase-element.html">
+
+<polymer-element name="page-jobs" attributes="">
+  <template>
+    <link rel="stylesheet" href="page-jobs.css">
+
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <firebase-element id="base" location="https://opus.firebaseio.com/jobs" data="{{jobs}}" keys="{{keys}}"></firebase-element>
+    <firebase-element id="base" location="https://opus.firebaseio.com" data="{{data}}"></firebase-element>
+
+    <div class="container">
+      <h3>My Firebase Data</h3>
+      <p> {{data['counter']}} </p>
+
+      <template repeat="{{key in keys}}">
+        <p>{{key}}: {{jobs[key]}}</p>
+      </template>
+
+    </div>
+  </template>
+
+
+  <script>
+    (function () {
+
+      
+
+      Polymer({
+        // define element prototype here
+        ready: function() {
+          var ref = new Firebase("https://opus.firebaseio.com");
+          ref.child('counter').transaction(function(count){
+            return (count || 0) + 1;
+          });
+        }
+      });
+    })();
+  </script>
+</polymer-element>

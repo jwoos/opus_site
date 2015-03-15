@@ -41,14 +41,20 @@
   
           <!-- Drawer Content -->
           <core-menu selected="0" selectedItem="{{item}}" selected="{{route}}" valueattr="hash">
-            <core-item label="about" icon="info" >
+            <core-item label="about" icon="info" hidden?="{{!statusKnown || user}}">
               <a href="#"> </a>
             </core-item>
             <core-submenu label="home" icon="home" selectedItem="{{subItem}}" hidden?="{{statusKnown || user}}">
+              <!-- students-->
+              <core-item label="jobs" icon="work">
+                <a href="#jobs"> </a>
+              </core-item>
+              <core-item label="post" icon="create"> </core-item>
+              <!-- business -->
               <core-item label="jobs" icon="work"></core-item>
-              <core-item label="post" icon="create"></core-item>
-              <core-item label="jobs" icon="work"></core-item>
-              <core-item label="post" icon="create"></core-item>
+              <core-item label="post" icon="create">
+                <a href="#post"> </a>
+              </core-item>
             </core-submenu>        
             <core-item label="profile" icon="account-circle" hidden?="{{statusKnown || user}}">
               <a href="#profile"> </a>
@@ -101,11 +107,24 @@
               </div>
             </section>
 
+            <section hash="jobs">
+              <div>
+                <page-jobs> </page-jobs>
+              </div>
+            </section>
+
+            <section hash="post">
+              <div>
+                <page-post> </page-post>
+              </div>
+            </section>
+
             <section hash="news">
               <div>
                 <page-news> </page-news>
               </div>
             </section>
+
             <section hash="contact">
               <div>
                 <page-contact> </page-contact>
