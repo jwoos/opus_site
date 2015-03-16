@@ -28,6 +28,8 @@
 <body unresolved fullbleed layout vertical>
   <template is="auto-binding" id="app">
     <firebase-login id="baseLogin" user="{{user}}" statusKnown="{{statusKnown}}" location="https://opus.firebaseio.com/"> </firebase-login>
+    <core-ajax id="ajax" url="{{selectedPage.page.url}}" handleAs="document"on-core-response="{{onResponse}}"></core-ajax>
+
     <div class="container">
       <core-drawer-panel>
   

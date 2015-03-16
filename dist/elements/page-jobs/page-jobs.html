@@ -14,7 +14,7 @@
 
     <div class="container">
       <h3>My Firebase Data</h3>
-      <p> {{data['counter']}} </p>
+      <p>there are {{data['counter']}} jobs</p>
 
       <template repeat="{{key in keys}}">
         <p>{{key}}: {{jobs[key]}}</p>
@@ -31,12 +31,12 @@
 
       Polymer({
         // define element prototype here
-        ready: function() {
+        /*ready: function() {
           var ref = new Firebase("https://opus.firebaseio.com");
           ref.child('counter').transaction(function(count){
             return (count || 0) + 1;
           });
-        }
+        }*/
       });
     })();
   </script>

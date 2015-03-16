@@ -1,8 +1,12 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-autogrow-textarea.html">
+<link rel="import" href="../../../bower_components/core-input/core-input.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/firebase-element/firebase-element.html">
+<link rel="import" href="../d-calendar/d-calendar.html">
 
 <polymer-element name="page-post" attributes="">
   <template>
@@ -10,17 +14,67 @@
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
 
-    <br>
+    <firebase-element id="base" location="https://opus.firebaseio.com/jobs" data="{{jobs}}" keys="{{keys}}"></firebase-element>
 
-    <template repeat="key in keys">
-      <div class="container">
-        <div class="row">
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
           <paper-shadow>
-            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-field center-block">
+                  <paper-input-decorator label="company name" floatingLabel="true">
+                    <input is="paper-input" type="text" value="{{company}}"/>
+                  </paper-input-decorator>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-field center-block">
+                  <paper-input-decorator label="job name" floatingLabel="true">
+                    <input is="paper-input" type="text" value="{{jobName}}"/>
+                  </paper-input-decorator>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field center-block">
+                <paper-input-decorator label="description" floatingLabel="true">
+                  <paper-autogrow-textarea>
+                    <textarea value="{{description}}"> </textarea>
+                  </paper-autogrow-textarea>
+                </paper-input-decorator>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input-field center-block">
+                    <d-calendar selectedDate="{{date}}"> </d-calendar>
+                </div>
+              </div>
+            </div>
           </paper-shadow>
         </div>
       </div>
-    </template>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-12">
+          <paper-shadow class="text-center">
+            <h4 hidden?="{{!company && !jobName }}"> <strong> review </strong> </h4>
+            <p hidden?="{{!company}}">company: {{company}} </p>
+            <p hidden?="{{!jobName}}">job name: {{jobName}} </p>
+            <p hidden?="{{!description}}">job name: {{description}} </p>
+            <p hidden?="{{!date}}">date: {{date}} </p>
+          </paper-shadow>
+        </div>
+      </div>
+    </div>
+
   </template>
   <script>
     (function () {

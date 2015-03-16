@@ -13,6 +13,8 @@
     console.log('template bound');
   });
 
+  
+
   window.addEventListener('polymer-ready', function(e) {
     app.logout = function() {
       this.$.baseLogin.logout();
