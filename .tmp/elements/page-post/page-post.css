@@ -4,3 +4,11 @@
 .input-field {
 	width:75%;
 }
+#numberfield {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+#time-range {
+  display: inline;
+}

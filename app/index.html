@@ -28,21 +28,18 @@
 <body unresolved fullbleed layout vertical>
   <template is="auto-binding" id="app">
     <firebase-login id="baseLogin" user="{{user}}" statusKnown="{{statusKnown}}" location="https://opus.firebaseio.com/"> </firebase-login>
-    <core-ajax id="ajax" url="{{selectedPage.page.url}}" handleAs="document"on-core-response="{{onResponse}}"></core-ajax>
 
     <div class="container">
       <core-drawer-panel>
-  
         <!-- Drawer -->
         <core-header-panel drawer>
-  
           <!-- Drawer Toolbar -->
           <core-toolbar id="drawer-toolbar">
             <h1>OPUS</h1>
           </core-toolbar>
   
           <!-- Drawer Content -->
-          <core-menu selected="0" selectedItem="{{item}}" selected="{{route}}" valueattr="hash">
+          <core-menu selectedItem="{{item}}" selected="{{route}}" valueattr="hash">
             <core-item label="about" icon="info" hidden?="{{!statusKnown || user}}">
               <a href="#"> </a>
             </core-item>
@@ -57,7 +54,7 @@
               <core-item label="post" icon="create">
                 <a href="#post"> </a>
               </core-item>
-            </core-submenu>        
+            </core-submenu>
             <core-item label="profile" icon="account-circle" hidden?="{{statusKnown || user}}">
               <a href="#profile"> </a>
             </core-item>
@@ -67,7 +64,7 @@
             <core-item label="contact" icon="create">
               <a href="#contact"> </a>
             </core-item>
-         </core-menu>
+          </core-menu>
         </core-header-panel>
   
         <!-- Main -->
