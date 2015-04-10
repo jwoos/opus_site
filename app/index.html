@@ -97,7 +97,8 @@
           </core-toolbar>
 
           <!-- Main Content -->
-          <flatiron-director route="{{route}}" autoHash></flatiron-director>
+          <!--<flatiron-director route="{{route}}" autoHash></flatiron-director>-->
+          <!-- flatiron director causes consistent page refresh for some reason, fix to enable deep linking URL's -->
           <core-animated-pages valueattr="hash" selected="{{route}}" transitions="cross-fade-all">
             <!-- about page -->
             <section hash="">
